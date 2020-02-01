@@ -1,10 +1,10 @@
 # 開放中文轉換 (OpenCC) 2
 
-[簡體中文（中國大陸）](README-CN.md)
+[简体中文（中国大陆）](https://github.com/sgalal/opencc2/blob/master/README-zh_CN.md) - [繁體中文（臺灣）](https://github.com/sgalal/opencc2/blob/master/README-zh_TW.md) - [English (United States)](https://github.com/sgalal/opencc2/blob/master/README-en_US.md)
 
 ## 基本概念
 
-見《[繁简中文转换概说](https://zhuanlan.zhihu.com/p/104314323)》（原文爲大陸簡體）。
+見《[繁簡中文轉換概說](https://zhuanlan.zhihu.com/p/104314323)》（原文爲大陸簡體）。
 
 ## 用法
 
@@ -31,9 +31,9 @@
 `opencc2.Converter` 接受以下參數：
 
 * `from_region`: 原文本的類型（詳見下方列表）。默認爲大陸簡體
-* `to_region`: 目標文本的區域（詳見下方列表）。默認爲臺灣繁體（臺灣正體）
-* `phrases`: 是否啓用詞彙轉換（如將「内存」轉換爲「記憶體」）。默認爲是
-* `fast`: 是否啓用快速轉換（但準確率降低）。默認爲否
+* `to_region`: 目標文本的類型（詳見下方列表）。默認爲臺灣繁體（臺灣正體）
+* `phrases`: 是否啓用詞彙轉換（如將「<span lang="zh-CN">内存</span>」轉換爲「<span lang="zh-TW">記憶體</span>」）。默認爲「是」
+* `fast`: 是否啓用快速轉換（但準確率降低）。默認爲「否」
 
 ### 在命令行中使用
 
@@ -50,6 +50,8 @@ $ echo 头发，发展，内存 | opencc2 -f cn -t tw
 $ echo 乾坤，乾燥，計程車 | opencc2 -f tw -t cn
 乾坤，干燥，出租车
 ```
+
+詳見 `opencc2 -h`。
 
 ## 支持的區域
 

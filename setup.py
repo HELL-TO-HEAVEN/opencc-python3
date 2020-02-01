@@ -6,10 +6,13 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md')) as f:
 	long_description = f.read()
 
+with open(path.join(here, 'src/opencc2/version.py')) as f:
+	exec(f.read())
+
 setup(
 	name='opencc2',
-	version='0.2.0',
-	description='Oen Chinese Convert (OpenCC) 2',
+	version=__version__,
+	description='開放中文轉換 2 | 开放中文转换 2 | Open Chinese Convert 2',
 	long_description=long_description,
 	long_description_content_type='text/markdown',
 	url='https://github.com/sgalal/opencc2',
@@ -19,6 +22,7 @@ setup(
 	classifiers=[
 		'Development Status :: 4 - Beta',
 		'Intended Audience :: Developers',
+		'Topic :: Software Development :: Libraries :: Python Modules',
 		'Topic :: Text Processing :: Linguistic',
 		'Natural Language :: Chinese (Simplified)',
 		'Natural Language :: Chinese (Traditional)',
