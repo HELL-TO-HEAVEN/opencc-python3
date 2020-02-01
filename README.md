@@ -14,7 +14,7 @@
 
 ```python
 >>> import opencc2
->>> cc = opencc2.Converter(from_region='cn', to_region='tw')
+>>> cc = opencc2.Converter(from_variant='cn', to_variant='tw')
 >>> cc.convert('头发，发展，内存')
 '頭髮，發展，記憶體'
 ```
@@ -23,28 +23,28 @@
 
 ```python
 >>> import opencc2
->>> cc = opencc2.Converter(from_region='tw', to_region='cn')
+>>> cc = opencc2.Converter(from_variant='tw', to_variant='cn')
 >>> cc.convert('乾坤，乾燥，計程車')
 '乾坤，干燥，出租车'
 ```
 
 `opencc2.Converter` 接受以下參數：
 
-* `from_region`: 原文本的變體類型（詳見下方列表）。默認爲大陸簡體
-* `to_region`: 目標文本的變體類型（詳見下方列表）。默認爲臺灣繁體（臺灣正體）
+* `from_variant`: 原文本的變體類型（詳見下方列表）。默認爲大陸簡體
+* `to_variant`: 目標文本的變體類型（詳見下方列表）。默認爲臺灣繁體（臺灣正體）
 * `phrases`: 是否啓用詞彙轉換（如將「<span lang="zh-CN">内存</span>」轉換爲「<span lang="zh-TW">記憶體</span>」）。默認爲「是」
 * `fast`: 是否啓用快速轉換（但準確率降低）。默認爲「否」
 
 ### 在命令行中使用
 
-從大陸簡體轉換爲臺灣繁體：
+從大陸簡體轉換爲臺灣繁體（臺灣正體）：
 
 ```sh
 $ echo 头发，发展，内存 | opencc2 -f cn -t tw
 頭髮，發展，記憶體
 ```
 
-從臺灣繁體轉換爲大陸簡體：
+從臺灣繁體（臺灣正體）轉換爲大陸簡體：
 
 ```sh
 $ echo 乾坤，乾燥，計程車 | opencc2 -f tw -t cn
@@ -66,3 +66,8 @@ $ echo 乾坤，乾燥，計程車 | opencc2 -f tw -t cn
 * 臺灣繁體（臺灣正體） (tw)
 
 目前不支持大陸繁體、馬來西亞簡體；新加坡簡體、香港繁體不支持詞彙轉換。
+
+## 開源協議
+
+* 代碼：MIT
+* 詞庫：Apache-2.0
