@@ -15,5 +15,5 @@ def main():
 	parser.add_argument('-a', '--fast', action='store_true', help='Fast conversion (less accurate)')
 	args = parser.parse_args()
 
-	cc = Converter(from_region=vars(args)['from'], to_region=vars(args)['to'], no_phrases=args.no_phrases, fast=args.fast)
+	cc = Converter(from_region=vars(args)['from'], to_region=vars(args)['to'], with_phrases=not args.no_phrases, fast=args.fast)
 	args.output.write(cc.convert(args.input.read()))

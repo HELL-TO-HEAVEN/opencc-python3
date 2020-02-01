@@ -9,53 +9,53 @@ path = os.path.abspath(os.path.dirname(__file__))
 
 jieba.setLogLevel(logging.INFO)
 
-def choose_dicts(region, no_phrases, is_from=True):
+def choose_dicts(region, with_phrases, is_from=True):
 	if is_from:  # dict from
 		if region == 'cn':
 			return ('STCharacters', 'STPhrases')
 		if region == 'sg':
-			if no_phrases:
-				return ('STCharacters', 'STPhrases')
-			else:
+			if with_phrases:
 				raise NotImplementedError('sg phrases is currently not supported, consider adding --no-phrases')
+			else:
+				return ('STCharacters', 'STPhrases')
 		if region == 'hk':
-			if no_phrases:
-				return ('HKVariantsRev', 'HKVariantsRevPhrases')
-			else:
+			if with_phrases:
 				raise NotImplementedError('hk phrases is currently not supported, consider adding --no-phrases')
+			else:
+				return ('HKVariantsRev', 'HKVariantsRevPhrases')
 		if region == 'tw':
-			if no_phrases:
-				return ('TWVariantsRev', 'TWVariantsRevPhrases')
-			else:
+			if with_phrases:
 				return ('TWVariantsRev', 'TWVariantsRevPhrases', 'TWPhrasesRev')
-		if region == 'jp':
-			if no_phrases:
-				return ('JPVariantsRev',)
 			else:
+				return ('TWVariantsRev', 'TWVariantsRevPhrases')
+		if region == 'jp':
+			if with_phrases:
 				raise NotImplementedError('jp phrases is currently not supported, consider adding --no-phrases')
+			else:
+				return ('JPVariantsRev',)
 	else:
 		if region == 'cn':
 			return ('TSCharacters', 'TSPhrases')
 		if region == 'sg':
-			if no_phrases:
-				return ('TSCharacters', 'TSPhrases')
-			else:
+			if with_phrases:
 				raise NotImplementedError('sg phrases is currently not supported, consider adding --no-phrases')
+			else:
+				return ('TSCharacters', 'TSPhrases')
 		if region == 'hk':
-			if no_phrases:
-				return ('HKVariants', 'HKVariantsPhrases')
-			else:
+			if with_phrases:
 				raise NotImplementedError('hk phrases is currently not supported, consider adding --no-phrases')
+			else:
+				return ('HKVariants', 'HKVariantsPhrases')
 		if region == 'tw':
-			if no_phrases:
-				return ('TWVariants',)
-			else:
+			if with_phrases:
 				return ('TWVariants', 'TWPhrasesIT', 'TWPhrasesName', 'TWPhrasesOther')
-		if region == 'jp':
-			if no_phrases:
-				return ('JPVariants',)
 			else:
+				return ('TWVariants',)
+		if region == 'jp':
+			if with_phrases:
 				raise NotImplementedError('jp phrases is currently not supported, consider adding --no-phrases')
+			else:
+				return ('JPVariants',)
 	raise Exception('Unrecognized region: ' + region)
 
 def build_trie(ds):  # build a trie
@@ -92,18 +92,18 @@ def replace_words(s, t, fast=False):
 		return ''.join(l)
 
 class Converter:
-	def __init__(this, from_region='cn', to_region='tw', no_phrases=False, fast=False):
+	def __init__(this, from_region='cn', to_region='tw', with_phrases=True, fast=False):
 		this.fast = fast
 
 		if from_region == 't':
 			this.TRIE_FROM = None
 		else:
-			this.TRIE_FROM = build_trie(choose_dicts(from_region, no_phrases, is_from=True))
+			this.TRIE_FROM = build_trie(choose_dicts(from_region, with_phrases, is_from=True))
 
 		if to_region == 't':
 			this.TRIE_TO = None
 		else:
-			this.TRIE_TO = build_trie(choose_dicts(to_region, no_phrases, is_from=False))
+			this.TRIE_TO = build_trie(choose_dicts(to_region, with_phrases, is_from=False))
 
 	def convert(this, s):
 		if this.TRIE_FROM:

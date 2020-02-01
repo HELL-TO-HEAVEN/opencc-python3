@@ -8,17 +8,20 @@ with open(path.join(here, 'README.md')) as f:
 
 setup(
 	name='opencc2',
-	version='0.1.0',
-	description='Open Chinese Convert (OpenCC) 2',
+	version='0.2.0',
+	description='Oen Chinese Convert (OpenCC) 2',
 	long_description=long_description,
 	long_description_content_type='text/markdown',
 	url='https://github.com/sgalal/opencc2',
 	author='sgalal',
 	author_email='ayaka@mail.shn.hk',
+	license='MIT',
 	classifiers=[
 		'Development Status :: 4 - Beta',
 		'Intended Audience :: Developers',
 		'Topic :: Text Processing :: Linguistic',
+		'Natural Language :: Chinese (Simplified)',
+		'Natural Language :: Chinese (Traditional)',
 		'License :: OSI Approved :: MIT License',
 		'Programming Language :: Python :: 3',
 		'Programming Language :: Python :: 3.5',
