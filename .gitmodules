@@ -1,0 +1,3 @@
+[submodule "src/opencc2/opencc2-dict"]
+	path = src/opencc2/opencc2-dict
+	url = https://github.com/sgalal/opencc2-dict

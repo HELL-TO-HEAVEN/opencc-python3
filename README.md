@@ -1,6 +1,6 @@
 # 開放中文轉換 (OpenCC) 2
 
-[简体中文（中国大陆）](https://github.com/sgalal/opencc2/blob/master/README-zh_CN.md) - [繁體中文（臺灣）](https://github.com/sgalal/opencc2/blob/master/README-zh_TW.md) - [English (United States)](https://github.com/sgalal/opencc2/blob/master/README-en_US.md)
+[<span lang="zh-CN">简体中文（中国大陆）</span>](https://github.com/sgalal/opencc2/blob/master/README-zh_CN.md) - [<span lang="zh-TW">繁體中文（臺灣）</span>](https://github.com/sgalal/opencc2/blob/master/README-zh_TW.md) - [<span lang="en-US">English (United States)</span>](https://github.com/sgalal/opencc2/blob/master/README-en_US.md)
 
 ## 基本概念
 
@@ -30,8 +30,8 @@
 
 `opencc2.Converter` 接受以下參數：
 
-* `from_region`: 原文本的類型（詳見下方列表）。默認爲大陸簡體
-* `to_region`: 目標文本的類型（詳見下方列表）。默認爲臺灣繁體（臺灣正體）
+* `from_region`: 原文本的變體類型（詳見下方列表）。默認爲大陸簡體
+* `to_region`: 目標文本的變體類型（詳見下方列表）。默認爲臺灣繁體（臺灣正體）
 * `phrases`: 是否啓用詞彙轉換（如將「<span lang="zh-CN">内存</span>」轉換爲「<span lang="zh-TW">記憶體</span>」）。默認爲「是」
 * `fast`: 是否啓用快速轉換（但準確率降低）。默認爲「否」
 
@@ -53,9 +53,9 @@ $ echo 乾坤，乾燥，計程車 | opencc2 -f tw -t cn
 
 詳見 `opencc2 -h`。
 
-## 支持的區域
+## 支持的變體類型
 
-支持的區域/標準如下：
+支持的變體類型如下：
 
 * OpenCC 2 繁體 (t)
 * 大陸簡體 (cn)

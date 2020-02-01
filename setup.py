@@ -37,7 +37,7 @@ setup(
 	packages=find_packages('src'),
 	package_dir={'': 'src'},
 	package_data={
-		'opencc2': ['dict/*.txt'],
+		'opencc2': ['opencc2-dict/data/*'],
 	},
 	include_package_data=True,
 	python_requires='>=3.5, <4',

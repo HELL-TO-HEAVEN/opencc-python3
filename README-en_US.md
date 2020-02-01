@@ -28,8 +28,8 @@ From **Traditional Chinese (Taiwan)** to **Simplified Chinese (Mainland China)**
 
 `opencc2.Converter` accepts the following arguments：
 
-* `from_region`: Type of original text. Default to **Simplified Chinese (Mainland China)**
-* `to_region`: Type of target text. Default to **Traditional Chinese (Taiwan)**
+* `from_region`: Type of variant of the original text. Default to **Simplified Chinese (Mainland China)**
+* `to_region`: Type of variant of the target text. Default to **Traditional Chinese (Taiwan)**
 * `phrases`: Whether to enable phrase conversion (e.g. convert <span lang="zh-CN">内存</span> to <span lang="zh-TW">記憶體</span>). Default to `True`
 * `fast`: Whether to enable fast conversion (with lower accuracy). Default to `False`
 
@@ -51,9 +51,9 @@ $ echo 乾坤，乾燥，計程車 | opencc2 -f tw -t cn
 
 See `opencc2 -h` for details.
 
-## Supported Regions
+## Supported Types of Variant
 
-Supported regions (standards) are as follows:
+Supported types of variant are as follows:
 
 * **Traditional Chinese (OpenCC 2)** (t)
 * **Simplified Chinese (Mainland China)** (cn)

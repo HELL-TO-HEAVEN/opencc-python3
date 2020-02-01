@@ -8,6 +8,3 @@ dist/
 __pycache__/
 *.so
 *~
-
-# Dictionary
-src/opencc2/dict/
