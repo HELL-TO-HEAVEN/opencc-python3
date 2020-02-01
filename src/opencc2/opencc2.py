@@ -1,10 +1,11 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import jieba
 import logging
 import os
 import pygtrie
+
+path = os.path.abspath(os.path.dirname(__file__))
 
 jieba.setLogLevel(logging.INFO)
 
@@ -60,7 +61,7 @@ def choose_dicts(region, no_phrases, is_from=True):
 def build_trie(ds):  # build a trie
 	t = pygtrie.CharTrie()
 	for d in ds:  # read a list of dictionaries
-		with open(os.path.join('dict', d + '.txt')) as f:
+		with open(os.path.join(path, 'dict', d + '.txt')) as f:
 			for line in f:
 				if line != '\n' and line[0] != '#':  # ignore empty and commented lines
 					l, r = line.rstrip().split('\t')  # split the line by TAB
