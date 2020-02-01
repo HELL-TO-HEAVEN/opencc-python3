@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import argparse
 import jieba
 import logging
 import os
 import pygtrie
-import sys
 
 jieba.setLogLevel(logging.INFO)
 
@@ -92,28 +90,23 @@ def replace_words(s, t, fast=False):
 			l.append(replace_words_plain(word, t))
 		return ''.join(l)
 
-parser = argparse.ArgumentParser(description='Open Chinese Convert (OpenCC) Command Line Tool')
-parser.add_argument('-f', dest='from', default='cn', help='Default to cn (mainland China)')
-parser.add_argument('-t', dest='to', default='tw', help='Default to tw (Taiwan)')
-parser.add_argument('-i', dest='input', help='Input file (default to STDIN)')
-parser.add_argument('-o', dest='output', help='Output file (default to STDOUT)')
-parser.add_argument('-n', '--no-phrases', action='store_true', help='Convert without phrases')
-parser.add_argument('-a', '--fast', action='store_true', help='Fast conversion (less accurate)')
-args = parser.parse_args()
+class Converter:
+	def __init__(this, from_region='cn', to_region='tw', no_phrases=False, fast=False):
+		this.fast = fast
 
-if not args.input:
-	s = sys.stdin.read()
-else:
-	with open(args.input) as f:
-		s = f.read()
+		if from_region == 't':
+			this.TRIE_FROM = None
+		else:
+			this.TRIE_FROM = build_trie(choose_dicts(from_region, no_phrases, is_from=True))
 
-if vars(args)['from'] != 't':
-	s = replace_words(s, build_trie(choose_dicts(vars(args)['from'], args.no_phrases, is_from=True)), fast=args.fast)
-if args.to != 't':
-	s = replace_words(s, build_trie(choose_dicts(args.to, args.no_phrases, is_from=False)), fast=args.fast)
+		if to_region == 't':
+			this.TRIE_TO = None
+		else:
+			this.TRIE_TO = build_trie(choose_dicts(to_region, no_phrases, is_from=False))
 
-if not args.output:
-	sys.stdout.write(s)
-else:
-	with open(args.output, 'w') as f:
-		f.write(s)
+	def convert(this, s):
+		if this.TRIE_FROM:
+			s = replace_words(s, this.TRIE_FROM, fast=this.fast)
+		if this.TRIE_TO:
+			s = replace_words(s, this.TRIE_TO, fast=this.fast)
+		return s
