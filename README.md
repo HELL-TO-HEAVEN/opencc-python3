@@ -2,6 +2,10 @@
 
 [<span lang="zh-CN">简体中文（中国大陆）</span>](https://github.com/sgalal/opencc2/blob/master/README-zh_CN.md) - [<span lang="zh-TW">繁體中文（臺灣）</span>](https://github.com/sgalal/opencc2/blob/master/README-zh_TW.md) - [<span lang="en-US">English (United States)</span>](https://github.com/sgalal/opencc2/blob/master/README-en_US.md)
 
+```sh
+$ pip install opencc2
+```
+
 ## 基本概念
 
 見《[繁簡中文轉換概說](https://zhuanlan.zhihu.com/p/104314323)》（原文爲大陸簡體）。

@@ -4,6 +4,10 @@
 
 See [_An Overview of Traditional Chinese and Simplified Chinese Conversion_](https://zhuanlan.zhihu.com/p/104314323) (in **Simplified Chinese (Mainland China)**).
 
+```sh
+$ pip install opencc2
+```
+
 ## Usage
 
 ### In Python Code

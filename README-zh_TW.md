@@ -4,6 +4,10 @@
 
 見《[繁簡中文轉換概說](https://zhuanlan.zhihu.com/p/104314323)》（原文為大陸簡體）。
 
+```sh
+$ pip install opencc2
+```
+
 ## 用法
 
 ### 在程式碼中使用
