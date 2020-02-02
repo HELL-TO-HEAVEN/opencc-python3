@@ -1,3 +1,5 @@
+<div lang="en-US">
+
 # Open Chinese Convert (OpenCC) 2
 
 ## Basic Concepts
@@ -73,3 +75,5 @@ Currently **Traditional Chinese (Mainland China)** and **Simplified Chinese (Mal
 
 * Code: MIT
 * Dictionary: Apache-2.0
+
+</div>

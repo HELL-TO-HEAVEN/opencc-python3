@@ -1,3 +1,5 @@
+<div lang="zh-CN">
+
 # 开放中文转换 (OpenCC) 2
 
 ## 基本概念
@@ -73,3 +75,5 @@ $ echo 乾坤，乾燥，計程車 | opencc2 -f tw -t cn
 
 * 代码：MIT
 * 词库：Apache-2.0
+
+</div>
