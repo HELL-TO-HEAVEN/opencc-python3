@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from .opencc2 import Converter
 from .version import __version__
 

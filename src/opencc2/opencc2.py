@@ -1,9 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import jieba
 import logging
 import os
 import pygtrie
-
-path = os.path.abspath(os.path.dirname(__file__))
 
 jieba.setLogLevel(logging.INFO)
 
@@ -57,6 +57,7 @@ def choose_dicts(variant, with_phrases, is_from=True):
 	raise Exception('Unrecognized variant: ' + variant)
 
 def build_trie(ds):  # build a trie
+	path = os.path.abspath(os.path.dirname(__file__))
 	t = pygtrie.CharTrie()
 	for d in ds:  # read a list of dictionaries
 		with open(os.path.join(path, 'opencc2-dict/data', d + '.txt')) as f:
