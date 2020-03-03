@@ -1,13 +1,13 @@
 <div lang="en-US">
 
-# Open Chinese Convert (OpenCC) 2
+# opencc-python3
 
 ## Basic Concepts
 
 See [_An Overview of Traditional Chinese and Simplified Chinese Conversion_](https://zhuanlan.zhihu.com/p/104314323) (in **Simplified Chinese (Mainland China)**).
 
 ```sh
-$ pip install opencc2
+$ pip install opencc-python3
 ```
 
 ## Usage
@@ -17,8 +17,8 @@ $ pip install opencc2
 From **Simplified Chinese (Mainland China)** to **Traditional Chinese (Taiwan)**:
 
 ```python
->>> import opencc2
->>> cc = opencc2.Converter(from_variant='cn', to_variant='tw')
+>>> import OpenCC
+>>> cc = OpenCC.Converter(from_variant='cn', to_variant='tw')
 >>> cc.convert('头发，发展，内存')
 '頭髮，發展，記憶體'
 ```
@@ -26,36 +26,35 @@ From **Simplified Chinese (Mainland China)** to **Traditional Chinese (Taiwan)**
 From **Traditional Chinese (Taiwan)** to **Simplified Chinese (Mainland China)**:
 
 ```python
->>> import opencc2
->>> cc = opencc2.Converter(from_variant='tw', to_variant='cn')
+>>> import OpenCC
+>>> cc = OpenCC.Converter(from_variant='tw', to_variant='cn')
 >>> cc.convert('乾坤，乾燥，計程車')
 '乾坤，干燥，出租车'
 ```
 
-`opencc2.Converter` accepts the following arguments：
+`OpenCC.Converter` accepts the following arguments：
 
 * `from_variant`: Type of variant of the original text. Default to **Simplified Chinese (Mainland China)**
 * `to_variant`: Type of variant of the target text. Default to **Traditional Chinese (Taiwan)**
-* `phrases`: Whether to enable phrase conversion (e.g. convert <span lang="zh-CN">内存</span> to <span lang="zh-TW">記憶體</span>). Default to `True`
-* `fast`: Whether to enable fast conversion (with lower accuracy). Default to `False`
+* `with_phrases`: Whether to enable phrase conversion (e.g. convert <span lang="zh-CN">内存</span> to <span lang="zh-TW">記憶體</span>). Default to `True`
 
 ### In Command Line
 
 From **Simplified Chinese (Mainland China)** to **Traditional Chinese (Taiwan)**:
 
 ```sh
-$ echo 头发，发展，内存 | opencc2 -f cn -t tw
+$ echo 头发，发展，内存 | opencc-python3 -f cn -t tw
 頭髮，發展，記憶體
 ```
 
 From **Traditional Chinese (Taiwan)** to **Simplified Chinese (Mainland China)**:
 
 ```sh
-$ echo 乾坤，乾燥，計程車 | opencc2 -f tw -t cn
+$ echo 乾坤，乾燥，計程車 | opencc-python3 -f tw -t cn
 乾坤，干燥，出租车
 ```
 
-See `opencc2 -h` for details.
+See `opencc-python3 -h` for details.
 
 ## Supported Types of Variant
 

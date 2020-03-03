@@ -1,9 +1,11 @@
-# 開放中文轉換 (OpenCC) 2
+# opencc-python3
 
-[<span lang="zh-CN">简体中文（中国大陆）</span>](https://github.com/sgalal/opencc2/blob/master/README-zh_CN.md) - [<span lang="zh-TW">繁體中文（臺灣）</span>](https://github.com/sgalal/opencc2/blob/master/README-zh_TW.md) - [<span lang="en-US">English (United States)</span>](https://github.com/sgalal/opencc2/blob/master/README-en_US.md)
+**This repository is NOT ready for production!**
+
+[<span lang="zh-CN">简体中文（中国大陆）</span>](https://github.com/sgalal/opencc-python3/blob/master/README-zh_CN.md) - [<span lang="zh-TW">繁體中文（臺灣）</span>](https://github.com/sgalal/opencc-python3/blob/master/README-zh_TW.md) - [<span lang="en-US">English (United States)</span>](https://github.com/sgalal/opencc-python3/blob/master/README-en_US.md)
 
 ```sh
-$ pip install opencc2
+$ pip install opencc-python3
 ```
 
 ## 基本概念
@@ -17,8 +19,8 @@ $ pip install opencc2
 從大陸簡體轉換爲臺灣繁體（臺灣正體）：
 
 ```python
->>> import opencc2
->>> cc = opencc2.Converter(from_variant='cn', to_variant='tw')
+>>> import OpenCC
+>>> cc = OpenCC.Converter(from_variant='cn', to_variant='tw')
 >>> cc.convert('头发，发展，内存')
 '頭髮，發展，記憶體'
 ```
@@ -26,36 +28,35 @@ $ pip install opencc2
 從臺灣繁體（臺灣正體）轉換爲大陸簡體：
 
 ```python
->>> import opencc2
->>> cc = opencc2.Converter(from_variant='tw', to_variant='cn')
+>>> import OpenCC
+>>> cc = OpenCC.Converter(from_variant='tw', to_variant='cn')
 >>> cc.convert('乾坤，乾燥，計程車')
 '乾坤，干燥，出租车'
 ```
 
-`opencc2.Converter` 接受以下參數：
+`OpenCC.Converter` 接受以下參數：
 
 * `from_variant`: 原文本的變體類型（詳見下方列表）。默認爲大陸簡體
 * `to_variant`: 目標文本的變體類型（詳見下方列表）。默認爲臺灣繁體（臺灣正體）
-* `phrases`: 是否啓用詞彙轉換（如將「<span lang="zh-CN">内存</span>」轉換爲「<span lang="zh-TW">記憶體</span>」）。默認爲「是」
-* `fast`: 是否啓用快速轉換（但準確率降低）。默認爲「否」
+* `with_phrases`: 是否啓用詞彙轉換（如將「<span lang="zh-CN">内存</span>」轉換爲「<span lang="zh-TW">記憶體</span>」）。默認爲「是」
 
 ### 在命令行中使用
 
 從大陸簡體轉換爲臺灣繁體（臺灣正體）：
 
 ```sh
-$ echo 头发，发展，内存 | opencc2 -f cn -t tw
+$ echo 头发，发展，内存 | opencc-python3 -f cn -t tw
 頭髮，發展，記憶體
 ```
 
 從臺灣繁體（臺灣正體）轉換爲大陸簡體：
 
 ```sh
-$ echo 乾坤，乾燥，計程車 | opencc2 -f tw -t cn
+$ echo 乾坤，乾燥，計程車 | opencc-python3 -f tw -t cn
 乾坤，干燥，出租车
 ```
 
-詳見 `opencc2 -h`。
+詳見 `opencc-python3 -h`。
 
 ## 支持的變體類型
 
