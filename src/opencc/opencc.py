@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import jieba
+# import jieba
 import logging
 import os
 import pygtrie
-
-jieba.setLogLevel(logging.INFO)
 
 def choose_dicts(variant, with_phrases, is_from=True):
 	if is_from:  # dict from
@@ -79,8 +77,8 @@ def replace_words_plain(s, t):
 			s = s[len(longest_prefix.key):]  # remove the word from the string
 	return ''.join(l)
 
-def replace_words(s, t, fast=False):
-	if fast:
+def replace_words(s, t):
+	if True:
 		return replace_words_plain(s, t)
 	else:
 		for i in t:
@@ -91,7 +89,7 @@ def replace_words(s, t, fast=False):
 		return ''.join(l)
 
 class Converter:
-	def __init__(this, from_variant='cn', to_variant='tw', with_phrases=True, fast=False):
+	def __init__(this, from_variant='cn', to_variant='tw', with_phrases=True):
 		this.fast = fast
 
 		if from_variant == 't':
@@ -106,7 +104,7 @@ class Converter:
 
 	def convert(this, s):
 		if this.TRIE_FROM:
-			s = replace_words(s, this.TRIE_FROM, fast=this.fast)
+			s = replace_words(s, this.TRIE_FROM)
 		if this.TRIE_TO:
-			s = replace_words(s, this.TRIE_TO, fast=this.fast)
+			s = replace_words(s, this.TRIE_TO)
 		return s

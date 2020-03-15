@@ -8,16 +8,16 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md')) as f:
 	long_description = f.read()
 
-with open(path.join(here, 'src/opencc2/version.py')) as f:
+with open(path.join(here, 'src/opencc-python3/version.py')) as f:
 	exec(f.read())
 
 setup(
-	name='opencc2',
+	name='opencc-python3',
 	version=__version__,
-	description='開放中文轉換 2 | 开放中文转换 2 | Open Chinese Convert 2',
+	description='Python 3 implementation of OpenCC',
 	long_description=long_description,
 	long_description_content_type='text/markdown',
-	url='https://github.com/sgalal/opencc2',
+	url='https://github.com/sgalal/opencc-python3',
 	author='sgalal',
 	author_email='ayaka@mail.shn.hk',
 	license='MIT',
@@ -39,19 +39,19 @@ setup(
 	packages=find_packages('src'),
 	package_dir={'': 'src'},
 	package_data={
-		'opencc2': ['opencc2-dict/data/*'],
+		'opencc': ['opencc-dict/data/*'],
 	},
 	include_package_data=True,
 	python_requires='>=3.5, <4',
-	install_requires=['pygtrie', 'jieba'],
+	install_requires=['pygtrie'],
 	entry_points={
 		'console_scripts': [
-			'opencc2=opencc2:main',
+			'opencc=opencc:main',
 		],
 	},
 	project_urls={
-		'Bug Reports': 'https://github.com/sgalal/opencc2/issues',
-		'Source': 'https://github.com/sgalal/opencc2',
+		'Bug Reports': 'https://github.com/sgalal/opencc-python3/issues',
+		'Source': 'https://github.com/sgalal/opencc-python3',
 	},
 	zip_safe=False
 )
