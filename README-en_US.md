@@ -35,8 +35,7 @@ From **Traditional Chinese (Taiwan)** to **Simplified Chinese (Mainland China)**
 `opencc.Converter` accepts the following arguments：
 
 * `from_variant`: Type of variant of the original text. Default to **Simplified Chinese (Mainland China)**
-* `to_variant`: Type of variant of the target text. Default to **Traditional Chinese (Taiwan)**
-* `with_phrases`: Whether to enable phrase conversion (e.g. convert <span lang="zh-CN">内存</span> to <span lang="zh-TW">記憶體</span>). Default to `True`
+* `to_variant`: Type of variant of the target text. Default to **Traditional Chinese (Taiwan)** (with phrases)
 
 ### In Command Line
 

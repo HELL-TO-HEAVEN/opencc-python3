@@ -35,8 +35,7 @@ $ pip install opencc-python3
 `opencc.Converter` 接受以下参数：
 
 * `from_variant`: 原文本的变体类型（详见下方列表）。默认为大陆简体
-* `to_variant`: 目标文本的变体类型（详见下方列表）。默认为台湾繁体（台湾正体）
-* `with_phrases`: 是否启用词汇转换（如将「<span lang="zh-CN">内存</span>」转换为「<span lang="zh-TW">記憶體</span>」）。默认为「是」
+* `to_variant`: 目标文本的变体类型（详见下方列表）。默认为台湾繁体（台湾正体）（带词汇转换）
 
 ### 在命令行中使用
 
