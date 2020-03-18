@@ -1,0 +1,3 @@
+[submodule "src/opencc/data"]
+	path = src/opencc/data
+	url = https://github.com/sgalal/opencc-data.git
