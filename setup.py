@@ -8,7 +8,7 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md')) as f:
 	long_description = f.read()
 
-with open(path.join(here, 'src/opencc-python3/version.py')) as f:
+with open(path.join(here, 'src/opencc/version.py')) as f:
 	exec(f.read())
 
 setup(
@@ -33,20 +33,21 @@ setup(
 		'Programming Language :: Python :: 3.5',
 		'Programming Language :: Python :: 3.6',
 		'Programming Language :: Python :: 3.7',
-		'Programming Language :: Python :: 3.8'
+		'Programming Language :: Python :: 3.8',
+		'Programming Language :: Python :: 3.9'
 	],
 	keywords='chinese chinese-language nlp natural-language-processing',
 	packages=find_packages('src'),
 	package_dir={'': 'src'},
 	package_data={
-		'opencc': ['opencc-dict/data/*'],
+		'opencc': ['data/data/*'],
 	},
 	include_package_data=True,
 	python_requires='>=3.5, <4',
 	install_requires=['pygtrie'],
 	entry_points={
 		'console_scripts': [
-			'opencc=opencc:main',
+			'opencc-python3=opencc:main',
 		],
 	},
 	project_urls={

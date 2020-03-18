@@ -14,25 +14,25 @@ $ pip install opencc-python3
 
 ### 在代码中使用
 
-从大陆简体转换为台湾繁体（台湾正体）：
+从大陆简体转换为台湾繁体（台湾正体）（带词汇转换）：
 
 ```python
->>> import OpenCC
->>> cc = OpenCC.Converter(from_variant='cn', to_variant='tw')
+>>> import opencc
+>>> cc = opencc.Converter(from_variant='cn', to_variant='twp')
 >>> cc.convert('头发，发展，内存')
 '頭髮，發展，記憶體'
 ```
 
-从台湾繁体（台湾正体）转换为大陆简体：
+从台湾繁体（台湾正体）转换为大陆简体（带词汇转换）：
 
 ```python
->>> import OpenCC
->>> cc = OpenCC.Converter(from_variant='tw', to_variant='cn')
+>>> import opencc
+>>> cc = opencc.Converter(from_variant='twp', to_variant='cn')
 >>> cc.convert('乾坤，乾燥，計程車')
 '乾坤，干燥，出租车'
 ```
 
-`OpenCC.Converter` 接受以下参数：
+`opencc.Converter` 接受以下参数：
 
 * `from_variant`: 原文本的变体类型（详见下方列表）。默认为大陆简体
 * `to_variant`: 目标文本的变体类型（详见下方列表）。默认为台湾繁体（台湾正体）
@@ -40,17 +40,17 @@ $ pip install opencc-python3
 
 ### 在命令行中使用
 
-从大陆简体转换为台湾繁体（台湾正体）：
+从大陆简体转换为台湾繁体（台湾正体）（带词汇转换）：
 
 ```sh
-$ echo 头发，发展，内存 | opencc-python3 -f cn -t tw
+$ echo 头发，发展，内存 | opencc-python3 -f cn -t twp
 頭髮，發展，記憶體
 ```
 
-从台湾繁体（台湾正体）转换为大陆简体：
+从台湾繁体（台湾正体）转换为大陆简体（带词汇转换）：
 
 ```sh
-$ echo 乾坤，乾燥，計程車 | opencc-python3 -f tw -t cn
+$ echo 乾坤，乾燥，計程車 | opencc-python3 -f twp -t cn
 乾坤，干燥，出租车
 ```
 
@@ -61,14 +61,10 @@ $ echo 乾坤，乾燥，計程車 | opencc-python3 -f tw -t cn
 支持的变体类型如下：
 
 * OpenCC 2 繁体 (t)
-* 大陆简体 (cn)
-* 大陆繁体 (cnt)
-* 新加坡简体 (sg)
-* 马来西亚简体 (my)
+* 大陆简体、新加坡简体 (cn, sg)
 * 香港繁体 (hk)
 * 台湾繁体（台湾正体） (tw)
-
-目前不支持大陆繁体、马来西亚简体；新加坡简体、香港繁体不支持词汇转换。
+* 台湾繁体（台湾正体）（带词汇转换） (twp)
 
 ## 开源协议
 
